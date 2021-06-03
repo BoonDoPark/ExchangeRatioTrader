@@ -13,10 +13,11 @@ class DataReceiver:
     def api_process(self):
         api = requests.get(self.host, self.key)
         return api
-
+ 
 
 receiver = DataReceiver()
 response = receiver.api_process()
 print(response.status_code)
 print(response.json())
 print(response.text)
+# 아직 1일만 잡아내기 때문에 한시간에 한번보기위한 수정이 필요.
