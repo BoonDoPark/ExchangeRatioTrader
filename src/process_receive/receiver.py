@@ -5,6 +5,9 @@ from collections import OrderedDict
 
 
 class Key:
+    """
+    환율정보를 얻어오는 API 요청 파라미터 인스턴스
+    """
     def __init__(self, duration: int):
         self._auth_key = 'AJzeBrLvsmODLLS0JpVe9e0aFaKiTEt4'
         self._search_date = date.today() - timedelta(duration)
@@ -24,11 +27,14 @@ class Key:
 
 
 class DataReceiver:
+    """
+    환율정보를 얻어오는 클래스
+    """
     def __init__(self):
         self.host = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON'
         self.key = OrderedDict()
 
-    def process(self, duration: int):
+    def get(self, duration: int):
         # Key 객체 생성
         _key = Key(duration)
         # Key 객체의 프로퍼티로 요청 파라미터 생성
@@ -38,10 +44,3 @@ class DataReceiver:
         # GET 요청 (response 를 얻어옴)
         res = requests.get(self.host, self.key)
         return res
- 
-
-receiver = DataReceiver()
-response = receiver.process(10)
-print(response.status_code)
-print(response.json())
-print(response.text)
