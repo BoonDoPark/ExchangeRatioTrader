@@ -31,7 +31,7 @@ class DataReceiver:
     환율정보를 얻어오는 클래스
     """
     def __init__(self):
-        self.host = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON'
+        self.host = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?'
         self.key = OrderedDict()
 
     def get(self, duration: int):
@@ -41,6 +41,7 @@ class DataReceiver:
         self.key['authkey'] = _key.auth_key
         self.key['searchdate'] = _key.search_date
         self.key['data'] = _key.data
+        print(self.key)
         # GET 요청 (response 를 얻어옴)
         res = requests.get(self.host, self.key)
         return res

@@ -8,10 +8,10 @@ class RatioReceiveProcess(RatioProcess):
     """
     def run(self):
         receiver = DataReceiver()
-        response = receiver.get(10)
+        response = receiver.get(1)
+        print(response)
         print(response.status_code)
         print(response.json())
-        print(response.text)
 
 
 proc = RatioReceiveProcess()
