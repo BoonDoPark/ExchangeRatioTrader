@@ -1,8 +1,11 @@
+import numpy as np
 import matplotlib.pyplot as plt
-from src.process_receive.process_receive import RatioReceiveProcess
+
 
 class DataVisualizer:
-    def __init__(self, x_label: str = 'x', y_label: str = 'y'):
+    def __init__(self, file_name: str, x_label: str = 'x', y_label: str = 'y'):
+        # 이미지 파일명
+        self._file_name = file_name
         # x, y 축 라벨
         self._x_label = x_label
         self._y_label = y_label
@@ -14,21 +17,22 @@ class DataVisualizer:
         :param ys: Y 축 데이터
         :return:
         """
-        # xs, ys, self._x_label, self._y_label 를 활용하여 차트를 그려볼것
-        data = plt.plot(xs, ys, 'r', marker='o', markersize=5)
-        label_a = plt.xlabel(self._x_label)
-        label_b = plt.ylabel(self._y_label)
-        return data, label_a, label_b
+        figure = plt.figure()
+        ax = figure.add_subplot(1, 1, 1)
+        x = np.array(xs)
+        y = np.array(ys)
+        ax.plot(x, y)
+        plt.show()
+        return figure
 
-    def export_to_img(self):
+    def export_to_img(self, figure):
         """
         차트를 이미지로 내보내는 메소드
         :return:
         """
-        report = plt.show()
-        return report
+        figure.savefig(self._file_name)
 
         
-visualizer = DataVisualizer()
-visualizer.visualize([1, 2, 3, 4], [4, 6, 8, 2])
-visualizer.export_to_img()
+visualizer = DataVisualizer('plot.png')
+figure = visualizer.visualize([1, 2, 3, 4], [4, 6, 8, 2])
+visualizer.export_to_img(figure)
