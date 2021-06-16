@@ -9,16 +9,17 @@ class RatioReceiveProcess(RatioProcess):
     """
     환율정보를 얻어오는 전체 프로세스
     """
-    def __init__(self):
+    def __init__(self, duration: int):
+        self._duration = duration
         self._ratios: List[ExchangeRatio] = list()
 
     @property
     def ratios(self) -> List[ExchangeRatio]:
         return self._ratios
 
-    def run(self, duration: int):
+    def run(self):
         receiver = DataReceiver()
-        response = receiver.get(duration)
+        response = receiver.get(self._duration)
         responses = response.json()
 
         # 응답 객체 생성 후 리스트에 보관
@@ -33,5 +34,5 @@ class RatioReceiveProcess(RatioProcess):
             print(r.cur_unit)
 
 
-proc = RatioReceiveProcess()
-proc.run(1)
+proc = RatioReceiveProcess(1)
+proc.run()
