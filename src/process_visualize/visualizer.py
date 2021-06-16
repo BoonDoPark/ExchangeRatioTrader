@@ -6,7 +6,7 @@ from src.process_receive.process_receive import RatioReceiveProcess
 class DataVisualizer:
     def __init__(self):
         self.proc = RatioReceiveProcess()
-        self.proc.run()
+        self.proc.run(duration=1)
 
     def run(self):
         ratios = self.proc.ratios
