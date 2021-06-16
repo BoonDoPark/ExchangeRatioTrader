@@ -15,15 +15,20 @@ class DataVisualizer:
         :return:
         """
         # xs, ys, self._x_label, self._y_label 를 활용하여 차트를 그려볼것
-        pass
+        data = plt.plot(xs, ys, 'r', marker='o')
+        label_a = plt.xlabel(self._x_label)
+        label_b = plt.ylabel(self._y_label)
+        return data, label_a, label_b
 
     def export_to_img(self):
         """
         차트를 이미지로 내보내는 메소드
         :return:
         """
-        pass
+        report = plt.show()
+        return report
 
         
 visualizer = DataVisualizer()
 visualizer.visualize([1, 2, 3, 4], [2, 4, 6, 8])
+visualizer.export_to_img()
