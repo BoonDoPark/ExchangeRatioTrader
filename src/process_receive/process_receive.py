@@ -16,9 +16,9 @@ class RatioReceiveProcess(RatioProcess):
     def ratios(self) -> List[ExchangeRatio]:
         return self._ratios
 
-    def run(self):
+    def run(self, duration: int):
         receiver = DataReceiver()
-        response = receiver.get(1)
+        response = receiver.get(duration)
         responses = response.json()
 
         # 응답 객체 생성 후 리스트에 보관
