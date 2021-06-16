@@ -34,4 +34,4 @@ class RatioReceiveProcess(RatioProcess):
 
 
 proc = RatioReceiveProcess()
-proc.run()
+proc.run(1)
