@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+from src.process_receive.process_receive import RatioReceiveProcess
 
 class DataVisualizer:
     def __init__(self, x_label: str = 'x', y_label: str = 'y'):
@@ -15,7 +15,7 @@ class DataVisualizer:
         :return:
         """
         # xs, ys, self._x_label, self._y_label 를 활용하여 차트를 그려볼것
-        data = plt.plot(xs, ys, 'r', marker='o')
+        data = plt.plot(xs, ys, 'r', marker='o', markersize=5)
         label_a = plt.xlabel(self._x_label)
         label_b = plt.ylabel(self._y_label)
         return data, label_a, label_b
@@ -30,5 +30,5 @@ class DataVisualizer:
 
         
 visualizer = DataVisualizer()
-visualizer.visualize([1, 2, 3, 4], [2, 4, 6, 8])
+visualizer.visualize([1, 2, 3, 4], [4, 6, 8, 2])
 visualizer.export_to_img()
