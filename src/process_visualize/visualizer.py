@@ -22,6 +22,8 @@ class DataVisualizer:
         x = np.array(xs)
         y = np.array(ys)
         ax.plot(x, y)
+        ax.set_xlabel(self._x_label)
+        ax.set_ylabel(self._y_label)
         plt.show()
         return figure
 
