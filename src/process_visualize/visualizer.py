@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 
 
 class DataVisualizer:
@@ -10,6 +11,19 @@ class DataVisualizer:
         self._x_label = x_label
         self._y_label = y_label
 
+    def subplot_exam(self):
+        """
+        subplot 연습용 메소드
+        :return:
+        """
+        figure: Figure = plt.figure()
+        axes1, axes2 = figure.subplots(2, 2)
+        print(axes1); print(axes2)
+        ax1, ax2 = axes1; ax3, ax4 = axes2
+        ax1.scatter(np.arange(30), np.arange(30) + 3 * np.random.randn(30))
+        ax2.hist(np.random.randn(30))
+        plt.show()
+
     def visualize(self, xs: list, ys: list):
         """
         차트로 시각화
@@ -18,7 +32,8 @@ class DataVisualizer:
         :return:
         """
         figure = plt.figure()
-        ax = figure.add_subplot(1, 1, 1)
+        ax = figure.add_subplot(1, 1, 1, xlabel=self._x_label, ylabel=self._y_label)
+        print(ax, type(ax))  # AxesSubplot(0.125,0.11;0.775x0.77) <class 'matplotlib.axes._subplots.AxesSubplot'>
         x = np.array(xs)
         y = np.array(ys)
         ax.plot(x, y)
@@ -36,5 +51,6 @@ class DataVisualizer:
 
         
 visualizer = DataVisualizer('plot.png')
+visualizer.subplot_exam()
 figure = visualizer.visualize([1, 2, 3, 4], [4, 6, 8, 2])
 visualizer.export_to_img(figure)
