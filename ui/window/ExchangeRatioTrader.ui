@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1600</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+	background-color: white;
+	color:rgb(51, 85, 172);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172);
+	min-width: 128;
+	height: 30;
+}
+
+QPushButton:hover {
+	background-color: rgb(241, 241, 241);
+}
+
+QPushButton:pressed {
+	background-color: rgb(218, 234, 255);
+	color:rgb(51, 85, 172);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172);
+}
+
+QPushButton:checked {
+background-color: rgb(218, 234, 255);
+	color:rgb(51, 85, 172);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172)
+}
+
+QPushButton#pushButton_save, 
+QPushButton#pushButton_load_info, 
+QPushButton#pushButton_save_biz, 
+QPushButton#pushButton_save_index, 
+QPushButton#pushButton_save_result,
+QPushButton#pushButton_load_biz_info,
+QPushButton#pushButton_print {
+	background-color:rgb(51, 85, 172);
+	color: white;
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172);
+	min-width: 128;
+	height: 30;
+}
+
+QPushButton#pushButton_save:pressed, 
+QPushButton#pushButton_load_info:pressed, 
+QPushButton#pushButton_save_biz:pressed, 
+QPushButton#pushButton_save_index:pressed, 
+QPushButton#pushButton_save_result:pressed,
+QPushButton#pushButton_load_biz_info:pressed {
+	background-color: rgb(0, 0, 127);
+	color: white;
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172);
+	min-width: 128;
+	height: 30;
+}
+
+QTabBar::tab {
+	background-color: white;
+	color: rgb(110, 118, 144);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(224, 231, 240);
+	padding: 6px;
+}
+
+QTabBar::tab:selected {
+	background-color: rgb(224, 231, 240);
+	color: rgb(51, 85, 172);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(224, 231, 240);
+	padding: 6px;
+}
+
+QPlainTextEdit#plainTextEdit_memo {
+	background-color: rgb(241, 241, 241);
+	border: 1px solid rgb(202, 208, 216);
+	font: 9pt &quot;굴림&quot;;
+	height: 80px;
+}
+
+QPlainTextEdit#plainTextEdit_etc {
+	background-color: white;
+	border: 1px solid rgb(202, 208, 216);
+	font: 9pt &quot;굴림&quot;;
+	height: 80px;
+}
+
+QTableWidget {
+	color: rgb(34, 34, 34);
+	font: 9pt &quot;굴림&quot;;
+	gridline-color: rgb(224, 231, 230);
+	border: 1px solid rgb(209, 209, 209);
+	background-color: rgb(241, 241, 241);
+}
+
+QComboBox {
+    background-color: white;
+	color: black;
+	font: 9pt &quot;굴림&quot;;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QWidget" name="widget" native="true">
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>Data Receive</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string>Data Visualize</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_3">
+          <property name="text">
+           <string>Trade</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="styleSheet">
+           <string notr="true">    background-color:rgb(76, 76, 76);
+    color: white;
+    font: 9pt &quot;굴림&quot;;
+    border: 1px solid rgb(51, 85, 172);
+    min-width: 128;
+    height: 30;</string>
+          </property>
+          <property name="text">
+           <string>Exit</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="widget_2" native="true">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>test</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1600</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>210</x>
+     <y>704</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>799</x>
+     <y>449</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

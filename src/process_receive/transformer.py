@@ -1,5 +1,11 @@
+from src.common.data import ExchangeRatio
+
+
 class DataTransformer:
     """
-    Data Visualize 를 위한 클래스
+    API를 통해 가져온 정보들을
+    Visualize하기 수월하게 데이터 변형
     """
-    pass
+    @staticmethod
+    def transform(self, exchange_ratio: ExchangeRatio):
+        pass

@@ -11,6 +11,7 @@ class RatioReceiveProcess(RatioProcess):
     """
     def __init__(self, duration: int):
         self._duration = duration
+        self._receiver = DataReceiver()
         self._ratios: List[ExchangeRatio] = list()
 
     @property
@@ -18,8 +19,7 @@ class RatioReceiveProcess(RatioProcess):
         return self._ratios
 
     def run(self):
-        receiver = DataReceiver()
-        response = receiver.get(self._duration)
+        response = self._receiver.get(self._duration)
         responses = response.json()
 
         # 응답 객체 생성 후 리스트에 보관
@@ -27,12 +27,3 @@ class RatioReceiveProcess(RatioProcess):
             # https://dev-ryuon.tistory.com/4?category=908968 참고
             v = res.values()
             self.ratios.append(ExchangeRatio(*v))
-            print(v)
-
-        # 결과 확인
-        for r in self.ratios:
-            print(r.cur_unit)
-
-
-proc = RatioReceiveProcess(1)
-proc.run()
