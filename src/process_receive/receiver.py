@@ -44,4 +44,5 @@ class DataReceiver:
         print(self.key)
         # GET 요청 (response 를 얻어옴)
         res = requests.get(self.host, self.key)
+        print(res)
         return res

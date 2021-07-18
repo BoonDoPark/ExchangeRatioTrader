@@ -120,7 +120,7 @@ QComboBox {
      <widget class="QSplitter" name="splitter">
       <property name="maximumSize">
        <size>
-        <width>16777215</width>
+        <width>400</width>
         <height>16777215</height>
        </size>
       </property>
@@ -136,28 +136,28 @@ QComboBox {
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="pushButton_receive">
           <property name="text">
            <string>Data Receive</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="pushButton_visualize">
           <property name="text">
            <string>Data Visualize</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="pushButton_trade">
           <property name="text">
            <string>Trade</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="pushButton_exit">
           <property name="styleSheet">
            <string notr="true">    background-color:rgb(76, 76, 76);
     color: white;
@@ -168,17 +168,6 @@ QComboBox {
           </property>
           <property name="text">
            <string>Exit</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="widget_2" native="true">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>test</string>
           </property>
          </widget>
         </item>
@@ -203,7 +192,7 @@ QComboBox {
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton_4</sender>
+   <sender>pushButton_exit</sender>
    <signal>clicked(bool)</signal>
    <receiver>MainWindow</receiver>
    <slot>close()</slot>
