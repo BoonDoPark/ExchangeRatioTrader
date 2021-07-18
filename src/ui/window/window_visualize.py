@@ -5,13 +5,13 @@
  ***************************************************************************/
 """
 from PyQt5 import uic
-from PyQt5.QtWidgets import QDialog
+from PyQt5.QtWidgets import QMainWindow
 from src.utils.util_path import PathUtils
 
-FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/dialog/dialog_visualize.ui'))
+FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/window/window_visualize.ui'))
 
 
-class DialogVisualize(QDialog, FORM_CLASS):
+class WindowVisualize(QMainWindow, FORM_CLASS):
     def __init__(self):
         super().__init__()
         self.setupUi(self)

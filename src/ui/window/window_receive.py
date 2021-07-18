@@ -5,15 +5,15 @@
  ***************************************************************************/
 """
 from PyQt5 import uic
-from PyQt5.QtWidgets import QDialog, QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QMainWindow
 
 from src.process_receive.process_receive import RatioReceiveProcess
 from src.utils.util_path import PathUtils
 
-FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/dialog/dialog_receive.ui'))
+FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/window/window_receive.ui'))
 
 
-class DialogReceive(QDialog, FORM_CLASS):
+class WindowReceive(QMainWindow, FORM_CLASS):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -31,10 +31,12 @@ class DialogReceive(QDialog, FORM_CLASS):
 
     def refresh_table_widget(self):
         print('refresh_table_widget')
+        print(self.tableWidget_exchange_trader)
         self.tableWidget_exchange_trader: QTableWidget
-        self.tableWidget_exchange_trader.clear()
-        print(self.proc_receive.ratios)
+        self.tableWidget_exchange_trader.setRowCount(0)
+
         for r, exchange_ratio in enumerate(self.proc_receive.ratios):
+            self.tableWidget_exchange_trader.insertRow(r)
             contents = [exchange_ratio.result,
                         exchange_ratio.cur_unit,
                         exchange_ratio.ttb,
