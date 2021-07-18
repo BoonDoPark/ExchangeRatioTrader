@@ -31,7 +31,6 @@ class WindowReceive(QMainWindow, FORM_CLASS):
 
     def refresh_table_widget(self):
         print('refresh_table_widget')
-        print(self.tableWidget_exchange_trader)
         self.tableWidget_exchange_trader: QTableWidget
         self.tableWidget_exchange_trader.setRowCount(0)
 
@@ -48,6 +47,5 @@ class WindowReceive(QMainWindow, FORM_CLASS):
                         exchange_ratio.kftc_deal_bas_r,
                         exchange_ratio.kftc_bkpr]
             for c, content in enumerate(contents):
-                print(r, c)
                 item = QTableWidgetItem(content)
                 self.tableWidget_exchange_trader.setItem(r, c, item)

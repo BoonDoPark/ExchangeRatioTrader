@@ -8,9 +8,9 @@ import sys
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
-from src.ui.window.window_window_receive import WindowReceive
-from src.ui.window.window_trade import DialogTrade
-from src.ui.window.window_visualize import DialogVisualize
+from src.ui.window.window_receive import WindowReceive
+from src.ui.window.window_trade import WindowTrade
+from src.ui.window.window_visualize import WindowVisualize
 from src.utils.util_path import PathUtils
 
 FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/window/window_exchange_ratio_trader.ui'))
@@ -40,11 +40,11 @@ class WindowExchangeRatioTrader(QMainWindow, FORM_CLASS):
 
     def on_clicked_visualize(self):
         print('on_clicked_visualize')
-        self.window_visualize = DialogVisualize()
+        self.window_visualize = WindowVisualize()
 
     def on_clicked_trade(self):
         print('on_clicked_trade')
-        self.window_trade = DialogTrade()
+        self.window_trade = WindowTrade()
 
 
 if __name__ == '__main__':
