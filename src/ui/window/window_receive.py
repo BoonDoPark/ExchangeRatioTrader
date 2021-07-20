@@ -18,7 +18,7 @@ class WindowReceive(QMainWindow, FORM_CLASS):
         super().__init__()
         self.setupUi(self)
 
-        self.proc_receive = RatioReceiveProcess(10)
+        self.proc_receive = RatioReceiveProcess(11)
         self.proc_receive.run()
 
         self.refresh_table_widget()
@@ -38,6 +38,7 @@ class WindowReceive(QMainWindow, FORM_CLASS):
             self.tableWidget_exchange_trader.insertRow(r)
             contents = [exchange_ratio.result,
                         exchange_ratio.cur_unit,
+                        exchange_ratio.cur_nm,
                         exchange_ratio.ttb,
                         exchange_ratio.tts,
                         exchange_ratio.deal_bas_r,
@@ -47,5 +48,6 @@ class WindowReceive(QMainWindow, FORM_CLASS):
                         exchange_ratio.kftc_deal_bas_r,
                         exchange_ratio.kftc_bkpr]
             for c, content in enumerate(contents):
+                print(contents)
                 item = QTableWidgetItem(content)
                 self.tableWidget_exchange_trader.setItem(r, c, item)
