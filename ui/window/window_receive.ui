@@ -13,65 +13,251 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+	background-color: white;
+	color:rgb(51, 85, 172);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172);
+	min-width: 128;
+	height: 30;
+}
+
+QPushButton:hover {
+	background-color: rgb(241, 241, 241);
+}
+
+QPushButton:pressed {
+	background-color: rgb(218, 234, 255);
+	color:rgb(51, 85, 172);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172);
+}
+
+QPushButton:checked {
+background-color: rgb(218, 234, 255);
+	color:rgb(51, 85, 172);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172)
+}
+
+QPushButton#pushButton_save, 
+QPushButton#pushButton_load_info, 
+QPushButton#pushButton_save_biz, 
+QPushButton#pushButton_save_index, 
+QPushButton#pushButton_save_result,
+QPushButton#pushButton_load_biz_info,
+QPushButton#pushButton_print {
+	background-color:rgb(51, 85, 172);
+	color: white;
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172);
+	min-width: 128;
+	height: 30;
+}
+
+QPushButton#pushButton_save:pressed, 
+QPushButton#pushButton_load_info:pressed, 
+QPushButton#pushButton_save_biz:pressed, 
+QPushButton#pushButton_save_index:pressed, 
+QPushButton#pushButton_save_result:pressed,
+QPushButton#pushButton_load_biz_info:pressed {
+	background-color: rgb(0, 0, 127);
+	color: white;
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(51, 85, 172);
+	min-width: 128;
+	height: 30;
+}
+
+QTabBar::tab {
+	background-color: white;
+	color: rgb(110, 118, 144);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(224, 231, 240);
+	padding: 6px;
+}
+
+QTabBar::tab:selected {
+	background-color: rgb(224, 231, 240);
+	color: rgb(51, 85, 172);
+	font: 9pt &quot;굴림&quot;;
+	border: 1px solid rgb(224, 231, 240);
+	padding: 6px;
+}
+
+QPlainTextEdit#plainTextEdit_memo {
+	background-color: rgb(241, 241, 241);
+	border: 1px solid rgb(202, 208, 216);
+	font: 9pt &quot;굴림&quot;;
+	height: 80px;
+}
+
+QPlainTextEdit#plainTextEdit_etc {
+	background-color: white;
+	border: 1px solid rgb(202, 208, 216);
+	font: 9pt &quot;굴림&quot;;
+	height: 80px;
+}
+
+QTableWidget {
+	color: rgb(34, 34, 34);
+	font: 9pt &quot;굴림&quot;;
+	gridline-color: rgb(224, 231, 230);
+	border: 1px solid rgb(209, 209, 209);
+	background-color: rgb(241, 241, 241);
+}
+
+QComboBox {
+    background-color: white;
+	color: black;
+	font: 9pt &quot;굴림&quot;;
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QTableWidget" name="tableWidget_exchange_trader">
-      <column>
-       <property name="text">
-        <string>조회 결과</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>통화코드</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>전신환(송금) 받으실때</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>전신환(송금) 보내실때</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>매매 기준율</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>장부가격</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>년환가료율</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>10 일환 가료율</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>서울외국환중개 매매기준율</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>서울외국환중개 장부가격</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>국가/통화명</string>
-       </property>
-      </column>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <widget class="QWidget" name="widget_2" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Options</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>duration : </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="spinBox_duration"/>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QTableWidget" name="tableWidget_exchange_trader">
+         <column>
+          <property name="text">
+           <string>조회 결과</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>통화코드</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>전신환(송금) 받으실때</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>전신환(송금) 보내실때</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>매매 기준율</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>장부가격</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>년환가료율</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>10 일환 가료율</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>서울외국환중개 매매기준율</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>서울외국환중개 장부가격</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>국가/통화명</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_3" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_refresh">
+         <property name="text">
+          <string>조회</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_exit">
+         <property name="styleSheet">
+          <string notr="true">    background-color:rgb(76, 76, 76);
+    color: white;
+    font: 9pt &quot;굴림&quot;;
+    border: 1px solid rgb(51, 85, 172);
+    min-width: 128;
+    height: 30;</string>
+         </property>
+         <property name="text">
+          <string>닫기</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -82,12 +268,29 @@
      <x>0</x>
      <y>0</y>
      <width>1119</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_exit</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1031</x>
+     <y>786</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>559</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

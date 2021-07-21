@@ -9,7 +9,7 @@ class RatioReceiveProcess(RatioProcess):
     """
     환율정보를 얻어오는 전체 프로세스
     """
-    def __init__(self, duration: int):
+    def __init__(self, duration: int = 0):
         self._duration = duration
         self._receiver = DataReceiver()
         self._ratios: List[ExchangeRatio] = list()

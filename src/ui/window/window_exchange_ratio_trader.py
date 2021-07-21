@@ -6,7 +6,7 @@
 """
 import sys
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QSpinBox
 
 from src.ui.window.window_receive import WindowReceive
 from src.ui.window.window_trade import WindowTrade

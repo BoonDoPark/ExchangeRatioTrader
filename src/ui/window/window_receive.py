@@ -5,7 +5,7 @@
  ***************************************************************************/
 """
 from PyQt5 import uic
-from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QMainWindow
+from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QMainWindow, QSpinBox, QMessageBox
 
 from src.process_receive.process_receive import RatioReceiveProcess
 from src.utils.util_path import PathUtils
@@ -18,16 +18,14 @@ class WindowReceive(QMainWindow, FORM_CLASS):
         super().__init__()
         self.setupUi(self)
 
-        self.proc_receive = RatioReceiveProcess(11)
-        self.proc_receive.run()
-
-        self.refresh_table_widget()
+        self.proc_receive = None
+        self.refresh()
 
         self.init_signal()
         self.show()
 
     def init_signal(self):
-        pass
+        self.pushButton_refresh.clicked.connect(self.on_clicked_refresh)
 
     def refresh_table_widget(self):
         print('refresh_table_widget')
@@ -48,6 +46,18 @@ class WindowReceive(QMainWindow, FORM_CLASS):
                         exchange_ratio.kftc_deal_bas_r,
                         exchange_ratio.kftc_bkpr]
             for c, content in enumerate(contents):
-                print(contents)
                 item = QTableWidgetItem(content)
                 self.tableWidget_exchange_trader.setItem(r, c, item)
+
+    def refresh(self, duration=0):
+        print('refresh', f'duration is {duration}')
+        self.proc_receive = RatioReceiveProcess(duration)
+        self.proc_receive.run()
+        self.refresh_table_widget()
+
+    def on_clicked_refresh(self):
+        self.spinBox_duration: QSpinBox
+        duration = self.spinBox_duration.value()
+        self.refresh(duration)
+        msg = f'{duration}일 전의 결과를 조회했습니다.' if duration != 0 else '오늘자 결과를 조회했습니다.'
+        return QMessageBox.information(self, '알림', msg)
