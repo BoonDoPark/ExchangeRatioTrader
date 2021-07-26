@@ -28,6 +28,7 @@ class SingletonInstance:
             # call __init__() method.
             obj.__init__()
             cls.__instance = obj
+            cls.instance = cls.__getInstance
 
     @classmethod
     def removeInstance(cls):
