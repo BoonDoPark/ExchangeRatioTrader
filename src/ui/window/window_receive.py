@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QMainWindow, QSpinBo
 
 from src.process_receive.process_receive import RatioReceiveProcess
 from src.utils.ui_utils_table import QTableFormat, QTableWidgetUtils
+from src.utils.util_date import DateUtils
 from src.utils.util_path import PathUtils
 
 FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/window/window_receive.ui'))
@@ -28,14 +29,15 @@ class WindowReceive(QMainWindow, FORM_CLASS):
     def init_signal(self):
         self.pushButton_refresh.clicked.connect(self.on_clicked_refresh)
 
-    def refresh_table_widget(self):
+    def refresh_table_widget(self, duration):
         print('refresh_table_widget')
         self.tableWidget_exchange_trader: QTableWidget
         self.tableWidget_exchange_trader.setRowCount(0)
-
+        key_date = DateUtils.before_duration(duration)
+        exchange_ratios = self.proc_receive.ratios.get(key_date)
         form_display = QTableFormat()
 
-        for r, exchange_ratio in enumerate(self.proc_receive.ratios):
+        for r, exchange_ratio in enumerate(exchange_ratios):
             self.tableWidget_exchange_trader.insertRow(r)
             contents = (exchange_ratio.result,
                         exchange_ratio.cur_unit,
@@ -55,9 +57,10 @@ class WindowReceive(QMainWindow, FORM_CLASS):
 
     def refresh(self, duration=0):
         print('refresh', f'duration is {duration}')
-        self.proc_receive = RatioReceiveProcess(duration)
-        self.proc_receive.run()
-        self.refresh_table_widget()
+        self.proc_receive = RatioReceiveProcess.instance()
+        self.proc_receive.ratios.clear()
+        self.proc_receive.run(duration)
+        self.refresh_table_widget(duration)
 
     def on_clicked_refresh(self):
         self.spinBox_duration: QSpinBox

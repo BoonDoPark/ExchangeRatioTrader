@@ -16,59 +16,100 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
-     <widget class="QSplitter" name="splitter">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <widget class="QWidget" name="widget" native="true">
-       <property name="maximumSize">
-        <size>
-         <width>400</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QGroupBox" name="groupBox">
-          <property name="title">
-           <string>국가 목록</string>
+     <widget class="QWidget" name="widget_3" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <widget class="QWidget" name="widget" native="true">
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
+           </size>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QTableWidget" name="tableWidget">
-             <column>
-              <property name="text">
-               <string>국가</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>통화명</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>통화코드</string>
-              </property>
-             </column>
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>Options</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>duration : </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinBox_duration"/>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>국가 목록</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <widget class="QTableWidget" name="tableWidget_country_list">
+                <property name="selectionBehavior">
+                 <enum>QAbstractItemView::SelectRows</enum>
+                </property>
+                <column>
+                 <property name="text">
+                  <string>국가</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>통화명</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>통화코드</string>
+                 </property>
+                </column>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
          </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="widget_2" native="true">
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <widget class="QLabel" name="label_for_pixmap">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
+         <widget class="QWidget" name="widget_2" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="label_for_pixmap">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
-        </item>
-       </layout>
-      </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -79,7 +120,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
