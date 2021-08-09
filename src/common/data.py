@@ -1,6 +1,5 @@
 class ExchangeRatio:
-    def __init__(self, result, cur_unit, cur_nm, ttb, tts, deal_bas_r, bkpr, yy_eeee_r, ten_dd_efee_r, kftc_deal_bas_r,
-                 kftc_bkpr):
+    def __init__(self, result=None, cur_unit=None, cur_nm=None, ttb=None, tts=None, deal_bas_r=None, bkpr=None, yy_eeee_r=None, ten_dd_efee_r=None, kftc_deal_bas_r=None, kftc_bkpr=None):
         """
         :param result: 조회 결과
         :param cur_unit: 통화코드
