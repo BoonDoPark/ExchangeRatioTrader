@@ -100,7 +100,6 @@ class WindowVisualize(QMainWindow, FORM_CLASS):
         #     self.save_file = RatioVisualizeProcess(f'{names[0][0]}.png', key_date, names[0][1])
         #     self.save_file.run()
         #     self.save_file._visualizer.export_to_img()
-        #
-        # self.load_file = QPixmap()
-        # self.load_file.load(f'{names[0][0]}.png')
-        # self.label_for_pixmap.setPixmap(self.load_file)
+        self.pixmap = QPixmap()
+        self.pixmap.load(f'{selected_cur_unit}.png')
+        self.label_for_pixmap.setPixmap(self.pixmap)
