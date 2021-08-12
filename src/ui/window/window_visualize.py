@@ -6,8 +6,8 @@
 """
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QMainWindow, QTableWidget, QTableWidgetItem
+from PyQt5.QtGui import QPixmap, QImage
+from PyQt5.QtWidgets import QMainWindow, QTableWidget, QTableWidgetItem, QLabel
 
 from src.common.data import ExchangeRatio
 from src.utils.ui_utils_table import QTableFormat, QTableWidgetUtils
@@ -89,8 +89,22 @@ class WindowVisualize(QMainWindow, FORM_CLASS):
                 selected_cur_unit_exchange_ratios.append(ExchangeRatio(kftc_deal_bas_r=0))
 
         # https://dev-ryuon.tistory.com/4?category=908968 : kwargs 참고
-        selected_kftc_deal_bas_r = [float(exchange_ratio.kftc_deal_bas_r) for exchange_ratio in selected_cur_unit_exchange_ratios]
-        params = {'file_name': f'{selected_cur_unit}.png', 'xs': key_dates, 'ys': selected_kftc_deal_bas_r}
+        # selected_kftc_deal_bas_r = [float(exchange_ratio.kftc_deal_bas_r) for exchange_ratio in selected_cur_unit_exchange_ratios]
+        selected_kftc_deal_bas_r = []
+        for exchange_ratio in selected_cur_unit_exchange_ratios:
+            if exchange_ratio.kftc_deal_bas_r == 0:
+                selected_kftc_deal_bas_r.append(0)
+
+            elif ',' in exchange_ratio.kftc_deal_bas_r:
+                exchange_ratio = exchange_ratio.kftc_deal_bas_r.split(',')
+                exchange_ratio = ''.join(exchange_ratio)
+                selected_kftc_deal_bas_r.append(float(exchange_ratio))
+
+
+            else:
+                selected_kftc_deal_bas_r.append(float(exchange_ratio.kftc_deal_bas_r))
+
+        params = {'file_name': f'{key_dates[0]}-{key_dates[-1]}.png', 'xs': key_dates, 'ys': selected_kftc_deal_bas_r}
         RatioVisualizeProcess.run(**params)
 
         # names = []
@@ -100,6 +114,11 @@ class WindowVisualize(QMainWindow, FORM_CLASS):
         #     self.save_file = RatioVisualizeProcess(f'{names[0][0]}.png', key_date, names[0][1])
         #     self.save_file.run()
         #     self.save_file._visualizer.export_to_img()
-        self.pixmap = QPixmap()
-        self.pixmap.load(f'{selected_cur_unit}.png')
-        self.label_for_pixmap.setPixmap(self.pixmap)
+        # image = QImage()
+        # image.load(f'{key_dates[0]}-{key_dates[-1]}.png')
+        pixmap = QPixmap()
+        pixmap.load(f'{key_dates[0]}-{key_dates[-1]}.png')
+        self.label_for_pixmap.setPixmap(pixmap)
+        # self.pixmap = QPixmap(f'{selected_cur_unit}.png')
+        # self.label = QLabel(self)
+        # self.label.setPixmap(self.pixmap)
