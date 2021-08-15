@@ -8,7 +8,7 @@ class PathUtils:
 
     @classmethod
     def ui_path(cls, path: str):
-        path = cls.PROJECT_PATH + f'\\{path}'
+        path = cls.PROJECT_PATH + f'/{path}'
         return path
 
     @classmethod

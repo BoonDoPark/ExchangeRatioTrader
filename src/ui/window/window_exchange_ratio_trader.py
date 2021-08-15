@@ -18,7 +18,6 @@ FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/window/window_exch
 
 class WindowExchangeRatioTrader(QMainWindow, FORM_CLASS):
     def __init__(self):
-        print(PathUtils.ui_path('window\\window_exchange_ratio_trader.ui'))
         super().__init__()
 
         self.window_receive = None
