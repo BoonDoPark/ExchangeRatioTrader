@@ -8,7 +8,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow
 from src.utils.util_path import PathUtils
 
-FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/window/window_trade.ui'))
+FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('/window/window_trade.ui'))
 
 
 class WindowTrade(QMainWindow, FORM_CLASS):

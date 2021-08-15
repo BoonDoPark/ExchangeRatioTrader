@@ -12,7 +12,7 @@ from src.utils.ui_utils_table import QTableFormat, QTableWidgetUtils
 from src.utils.util_date import DateUtils
 from src.utils.util_path import PathUtils
 
-FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/window/window_receive.ui'))
+FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('/window/window_receive.ui'))
 
 
 class WindowReceive(QMainWindow, FORM_CLASS):

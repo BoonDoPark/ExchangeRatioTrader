@@ -20,7 +20,7 @@ class DataVisualizer:
         x = np.array(xs)
         y = np.array(ys)
         ax.plot(x, y)
-        plt.show()
+        # plt.show()
         return figure
 
     @staticmethod

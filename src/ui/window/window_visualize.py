@@ -17,7 +17,7 @@ from src.utils.util_path import PathUtils
 from src.process_receive.process_receive import RatioReceiveProcess
 from src.process_visualize.process_visualize import RatioVisualizeProcess
 
-FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('../../../ui/window/window_visualize.ui'))
+FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('/window/window_visualize.ui'))
 
 
 class WindowVisualize(QMainWindow, FORM_CLASS):
