@@ -88,13 +88,15 @@ class WindowVisualize(QMainWindow, FORM_CLASS):
                 # 주말에 대한 예외처리
                 selected_cur_unit_exchange_ratios.append(ExchangeRatio(kftc_deal_bas_r=0))
 
+        PathUtils.folder_path()
         # https://dev-ryuon.tistory.com/4?category=908968 : kwargs 참고
         selected_kftc_deal_bas_r = [str(exchange_ratio.kftc_deal_bas_r) for exchange_ratio in selected_cur_unit_exchange_ratios]
-        params = {'file_name': f'{selected_cur_unit}.png', 'xs': key_dates, 'ys': selected_kftc_deal_bas_r}
+        params = {'file_name': f'{PathUtils.img_path(selected_cur_unit)}.png', 'xs': key_dates, 'ys': selected_kftc_deal_bas_r}
         RatioVisualizeProcess.run(**params)
 
         self.pixmap = QPixmap()
-        self.pixmap.load(f'{selected_cur_unit}.png')
+        self.pixmap.load(f'{PathUtils.img_path(selected_cur_unit)}.png')
+        #self.pixmap.load(f'{selected_cur_unit}.png')
         self.label_for_pixmap.setPixmap(self.pixmap)
 
         # selected_kftc_deal_bas_r = []

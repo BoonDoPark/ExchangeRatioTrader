@@ -4,7 +4,7 @@ import shutil
 
 class PathUtils:
     PROJECT_NAME = 'ExchangeRatioTrader'
-    FOLDER_PATH = os.makedirs('../../../imgs', exist_ok=True)
+    # FOLDER_PATH = os.makedirs('../../../imgs', exist_ok=True)
 
     @classmethod
     def project_path(cls):
@@ -18,16 +18,11 @@ class PathUtils:
         return path
 
     @classmethod
-    def folder_make_path(cls):
-        path = cls.FOLDER_PATH
-        return path
+    def folder_path(cls):
+        return os.makedirs(f'{cls.project_path()}/imgs', exist_ok=True)
 
     @classmethod
-    def img_save_path(cls, name: str, path: str):
-        cls.img_save = shutil.move(f'{name}', cls.project_path() + f'\\{path}')
-        path = cls.img_save
+    def img_path(cls, path: str):
+        path = cls.project_path() + '/imgs' + f'/{path}'
         return path
 
-    @classmethod
-    def img_read_path(cls, path: str):
-        pass
