@@ -8,6 +8,8 @@ import sys
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QSpinBox
 
+from src.ui.tab.tab_receive import TabReceive
+from src.ui.tab.tab_visualize import TabVisualize
 from src.ui.window.window_receive import WindowReceive
 from src.ui.window.window_trade import WindowTrade
 from src.ui.window.window_visualize import WindowVisualize
@@ -19,31 +21,12 @@ FORM_CLASS, _ = uic.loadUiType(PathUtils.ui_path('/window/window_exchange_ratio_
 class WindowExchangeRatioTrader(QMainWindow, FORM_CLASS):
     def __init__(self):
         super().__init__()
-
-        self.window_receive = None
-        self.window_visualize = None
-        self.window_trade = None
-
         self.setupUi(self)
-        self.init_signal()
+
+        self.tab_receive = TabReceive(self)
+        self.tab_visualize = TabVisualize(self)
+
         self.show()
-
-    def init_signal(self):
-        self.pushButton_receive.clicked.connect(self.on_clicked_receive)
-        self.pushButton_visualize.clicked.connect(self.on_clicked_visualize)
-        self.pushButton_trade.clicked.connect(self.on_clicked_trade)
-
-    def on_clicked_receive(self):
-        print('on_clicked_receive')
-        self.window_receive = WindowReceive()
-
-    def on_clicked_visualize(self):
-        print('on_clicked_visualize')
-        self.window_visualize = WindowVisualize()
-
-    def on_clicked_trade(self):
-        print('on_clicked_trade')
-        self.window_trade = WindowTrade()
 
 
 if __name__ == '__main__':
